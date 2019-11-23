@@ -22,20 +22,17 @@ class Scraper
     doc.css(".social-icon-container a").each do |link|
       href = link.attribute('href').value
       if href.include?("twitter")
-       links[:twitter] = href
+       profile[:twitter] = href
       end
       if href.include?("linkedin")
-        links[:linkedin] = href
+        profile[:linkedin] = href
       end
       if href.include?("github")
-        links[:github] = href
+        profile[:github] = href
       end
-  end
-    doc.css(".student-card")
+    end
+    profile[:bio] = doc.css("p").text
       {
-      :twitter => doc.css("a").attribute("href").value,
-      :linkedin => doc.css("a").attribute("href").value,
-      :github => doc.css("a").attribute("href").value,
       :blog => doc.css("a").attribute("href").value,
       :profile_quote => doc.css(".profile-quote").text,
       :bio => doc.css("p").text
