@@ -29,7 +29,7 @@ class Scraper
       :github => doc.css("a").attribute("href").value,
       :blog => doc.css("a").attribute("href").value,
       :profile_quote => doc.css(".profile-quote").text,
-      :bio => doc.css("p").attribute("href").text
+      :bio => doc.css("p").text
       }
   end
 
