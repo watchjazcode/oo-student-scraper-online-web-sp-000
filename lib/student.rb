@@ -12,17 +12,22 @@ class Student
   end
 
   def self.create_from_collection(students_array)
-    students_array.each do |student_hash| #
+    students_array.each do |student_hash| #taking array of students and turning each one into a student object
       Student.new(student_hash)
-    
+    end
   end
 
   def add_student_attributes(attributes_hash)
-    
+    @twitter = attributes_hash[:twitter]
+    @linkedin = attributes_hash[:linkedin]
+    @github = attributes_hash[:github]
+    @blog = attributes_hash[:blog]
+    @profile_quote = attributes_hash[:profile_quote]
+    @bio = attributes_hash[:bio]
   end
 
   def self.all
-    
+    @@all
   end
 end
 
