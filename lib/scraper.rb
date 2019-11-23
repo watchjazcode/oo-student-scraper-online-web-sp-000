@@ -28,7 +28,7 @@ class Scraper
       :linkedin => doc.css("a").attribute("href").value,
       :github => doc.css("a").attribute("href").value,
       :blog => doc.css("a").attribute("href").value,
-      :profile_quote => doc.css("a").attribute("href").value,
+      :profile_quote => doc.css(".profile-quote").text,
       :bio => doc.css("a").attribute("href").value
       }
   end
