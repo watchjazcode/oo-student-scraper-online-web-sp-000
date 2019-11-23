@@ -23,26 +23,16 @@ class Scraper
       href = link.attribute('href').value
       if href.include?("twitter")
        profile[:twitter] = href
-      end
-      if href.include?("linkedin")
-        profile[:linkedin] = href
-      end
-      if href.include?("github")
+      elsif href.include?("linkedin")
+       profile[:linkedin] = href
+      elsif href.include?("github")
         profile[:github] = href
+      else
+        profile[:blog] = href
       end
     end
     profile[:bio] = doc.css("p").text
     profile[:profile_quote] = doc.css(".profile-quote").text
-    profile[:blog] = ?
+    return profile
   end
-
 end
-
-def scrape_horror_movies
-				rows = @doc.css("table.table tr")
-				rows.shift
-				rows[0..24].each do |row| 
-					listing = Horror::Movie::Listing.new(row)
-				end
-			end
-
