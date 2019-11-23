@@ -32,11 +32,8 @@ class Scraper
       end
     end
     profile[:bio] = doc.css("p").text
-      {
-      :blog => doc.css("a").attribute("href").value,
-      :profile_quote => doc.css(".profile-quote").text,
-      :bio => doc.css("p").text
-      }
+    profile[:profile_quote] = doc.css(".profile-quote").text
+    profile[:blog] = ?
   end
 
 end
